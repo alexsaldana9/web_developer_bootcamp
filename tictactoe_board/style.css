@@ -1,0 +1,17 @@
+table {
+    width: 50%;
+    align: center;
+}
+
+div {
+    /* border: 2px solid blue; */
+    height: 10em;
+}
+
+.right {
+    border-right: 10px solid green;
+}
+
+.bottom {
+    border-bottom: 10px solid purple;
+}

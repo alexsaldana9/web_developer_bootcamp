@@ -1,0 +1,9 @@
+.row {
+    padding: 3em;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    padding: 1em;
+}
