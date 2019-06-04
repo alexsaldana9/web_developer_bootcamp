@@ -53,3 +53,18 @@ function replaceAllOccurances (str) {
 
 console.log(replaceAllOccurances("HOLA-hola-salut"));
 console.log(replaceAllOccurances("HOLA-hola"));
+
+console.log("SCOPE ===================");
+
+var num = 8;
+function doMath() {
+    num += 1;
+    if (num % 5 == 0) {
+        return true;
+    } else {
+        false
+    }
+}
+
+num += 1;
+console.log(doMath());
