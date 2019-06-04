@@ -44,17 +44,12 @@ console.log(kebabtoSnake("HOLA-hola"));
 console.log(kebabtoSnake("HOLA-hola-salut"));
 console.log(kebabtoSnake("HOLA"));
 
-console.log("REPLACE in all occurences");
-
-// String.prototype.replaceAll = function(search, replacement) {
-//     var target = this;
-//     return target.replace(new RegExp(search, '-'), replacement);
-// };
-
+console.log("REPLACE in all occurences - Using Regular expression");
 
 function replaceAllOccurances (str) {
-    var find = '-';
-    var re = new RegExp(find, 'g');
-
-str = str.replace(re, '_');
+    var newString =  str.replace(/-/g, '_');
+    return newString;
 }
+
+console.log(replaceAllOccurances("HOLA-hola-salut"));
+console.log(replaceAllOccurances("HOLA-hola"));
