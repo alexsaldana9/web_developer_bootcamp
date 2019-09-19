@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+}
+
+.square {
+    width: 30%;
+    background-color: aquamarine;
+    padding-top: 30%;
+    float: left;
+    margin: 1.66%;
+    border-radius: 20px;
+}
+
+.done {
+    background-color: green;
+}
