@@ -22,6 +22,8 @@ p1button.addEventListener("click", function(){
         document.getElementById("p1DisplayScore").innerHTML = p1Score;
 
         if(p1Score === winningScore){
+
+            p1DisplayScore.classList.add("winner");
             console.log("game over!!!");
             gameover = true;
         }
@@ -39,6 +41,8 @@ p2button.addEventListener("click", function(){
         console.log(" value of winning score = " + winningScore);
 
         if(p2Score === winningScore){
+
+            p2DisplayScore.classList.add("winner");
             console.log("game over!!!");
             gameover = true;
         }

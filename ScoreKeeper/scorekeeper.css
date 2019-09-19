@@ -1,0 +1,8 @@
+.winner {
+    color: green;
+    font-weight: bolder;
+}
+
+.container {
+    padding-top: 2em;
+}
