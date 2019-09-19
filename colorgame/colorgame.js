@@ -14,14 +14,9 @@ for(var i = 0; i < squares.length ; i++) {
     squares[i].style.backgroundColor = colors[i];
 }
 
+$("#1s").click(function(){
+    alert("sdklfjksdjfl");
+    square1.classList.add("done");
+});
 
 
-// for(var i = 0; i < squares.length ; i++) {
-//     squares[i].addEventListener("click", function(){
-//         this.classList.toggle("done");
-//     });
-// }
-
-function changeColor1() {
-    this.style.backgroundColor = "green";
-}

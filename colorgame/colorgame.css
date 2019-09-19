@@ -11,6 +11,10 @@ body {
     border-radius: 20px;
 }
 
-.done {
+.square.done {
     background-color: green;
+}
+
+.selected {
+    background-color: orange;
 }
