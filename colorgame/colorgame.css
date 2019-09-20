@@ -2,6 +2,10 @@ body {
     background-color: black;
 }
 
+h1, h2 {
+    color: white;
+}
+
 .square {
     width: 30%;
     background-color: aquamarine;
