@@ -1,19 +1,15 @@
 (function(){
     var squares = document.querySelectorAll(".square");
     var colorDisplay = document.getElementById("colorDisplay");
-    var message = document.getElementById("displayMessage");
+    var displayMessage = document.getElementById("displayMessage");
     var resetColorsButton = document.getElementById("newColorsBtn");
 
-    var colors = generateRandomColors(6);
-    var pickedColor = pickColor(colors);
+    var colors;
+    var pickedColor;
 
-    console.log("pickedColor - line 10 =" + pickedColor);
-
-    colorDisplay.textContent = pickedColor;
+    resetColors();
 
     for(var i = 0; i < squares.length ; i++) {
-        squares[i].style.backgroundColor = colors[i];
-
         squares[i].addEventListener("click", function(){
 
             console.log("CLICKED on a SQUARE");
@@ -36,23 +32,25 @@
 
 
     resetColorsButton.addEventListener("click", function(){
+        console.log("clicked resetColors button");
+
+        resetColors();
+    });
+
+
+    function resetColors() {
         colors = generateRandomColors(6);
         pickedColor = pickColor(colors);
         colorDisplay.textContent = pickedColor;
-
-        console.log("pickedColor inside of reset ===" + pickedColor);
-
         displayMessage.textContent = "";
 
-        console.log("clicked resetColors button");
-        //console.log("pickedColor === " + pickedColor);
+        console.log("pickedColor inside of reset ===" + pickedColor);
        
         for(var i = 0; i < squares.length ; i++) {
             squares[i].style.backgroundColor = colors[i];
             console.log("colors[i] > ", colors[i]);
         }
-    });
-
+    }
 
 
     function changeColors(color){
