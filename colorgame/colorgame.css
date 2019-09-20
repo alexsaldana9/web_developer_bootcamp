@@ -4,8 +4,19 @@ body {
 
 h1, h2 {
     color: white;
+    padding-left: 2em;
+    padding-top: 2em;
 }
 
+#colorDisplay {
+    font-size: 1.9em;
+}
+
+.title-header {
+    background-color: blue;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
 .square {
     width: 30%;
     background-color: aquamarine;
