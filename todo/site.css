@@ -1,0 +1,35 @@
+body {
+    height: 100px;
+    background-color: lightcyan; /* For browsers that do not support gradients */
+    background-image: linear-gradient(90deg, lightcyan, lightgreen); /* Standard syntax (must be last) */
+  }
+  
+
+.container {
+    margin: 50px;
+}
+
+.light-header {
+    background-color: #0072ffa1;
+    color: white;
+    padding: 1.5em;
+}
+
+
+ul{ 
+    list-style-type: none; 
+    font-size: 2em;
+    font-weight: 600;
+}
+
+li {
+    padding-left: 1.5em;
+    background-color: #8080807a;
+}
+
+.red {
+    background-color:red;
+}
+.blue {
+    background-color:blue;
+}
