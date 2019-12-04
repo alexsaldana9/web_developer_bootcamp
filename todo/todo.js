@@ -1,8 +1,10 @@
 
 
 $("li").on('click', function () {
+
+    console.log("clicked li");
     var gValue = $(this).attr('class');
-    if (gValue == 'blue') {
+    if (gValue == 'orange') {
         $(this).removeClass("blue");
         $(this).addClass("red");
     } else {
@@ -12,18 +14,20 @@ $("li").on('click', function () {
 });
 
 
-
 function addItem(){
-    var ul = document.getElementById("dynamic-list");
-    var newItem = document.getElementById("dataInput");
-    var li = document.createElement("li");
+    var textInput  = document.getElementById('todo-input').value;
+    console.log("textInput .." , textInput);
 
-    li.setAttribute('id',newItem.value);
-    li.appendChild(document.createTextNode(newItem.value));
-    ul.appendChild(li);
-
+    var li = document.createElement('li');
+    console.log("li .... ", li);
     
+    var list = document.createTextNode(textInput);
+    li.appendChild(list);
 
+    console.log("list ....", list);
+
+    document.getElementById("dynamic-list").appendChild(li);
+    document.getElementById("todo-input").value = " ";
 }
 
 function removeItem(){
