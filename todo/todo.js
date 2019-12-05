@@ -65,7 +65,9 @@ function itemDone(id){
 
 
     var listitem = document.getElementById(id);
-    listitem.classList.add('doneItem');
+    //listitem.classList.add('doneItem');
+
+    $(listitem).addClass("doneItem");
 
     //listitem.style.backgroundColor = "red";
     // listitem.id += "-run";
