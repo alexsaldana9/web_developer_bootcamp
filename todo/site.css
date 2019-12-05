@@ -33,3 +33,11 @@ li {
 .blue {
     background-color:blue;
 }
+
+.buttonDone {
+    margin-left: 3em;
+}
+
+.doneItem {
+    background-color: red;
+}

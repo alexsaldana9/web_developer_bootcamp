@@ -27,7 +27,13 @@ function addItem(){
 
     console.log("list ....", list);
 
+    let buttonDone = document.createElement('BUTTON'); 
+    buttonDone.textContent = 'Done';
+    buttonDone.className = 'buttonDone';
+    buttonDone.addEventListener("click", itemDone);
+
     document.getElementById("dynamic-list").appendChild(li);
+    li.appendChild(buttonDone);
 
     document.getElementById("todo-input").value = " ";
 
@@ -36,18 +42,42 @@ function addItem(){
     console.log("count li >>", count);
 
     $('#dynamic-list li').each(function(i) {
-        $(this).attr('id', (i+1));
+        //$(this).attr('id', ("li"+(i+1), 'onmousedown' , 'changeColor(this.id)'));
+
+        $(this).attr({
+            "id": "li"+(i+1),
+            "onmousedown": "itemDone(this.id)"
+        });
+    });
+
+    $('#dynamic-list li button').each(function(i) {
+        $(this).attr('id', ('button' + (i+1)));
     });
 }
 
-function removeItem(){
+function itemDone(id){
     // var ul = document.getElementById("dynamic-list");
     // var deleteItem = document.getElementById("dataInput");
     // var item = document.getElementById(deleteItem.value);
     // ul.removeChild(item);
+    console.log("selected done button");
+    //$('#dynamic-list ul li.selected').css("color", "red");
 
- 
-     alert("selected");
+
+    var listitem = document.getElementById(id);
+    listitem.classList.add('doneItem');
+
+    //listitem.style.backgroundColor = "red";
+    // listitem.id += "-run";
+
+
+
+    // $(this.).attr({
+    //     "color": "red"
+    // });
+
+
+       
 
 }
 
