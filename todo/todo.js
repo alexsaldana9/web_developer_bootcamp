@@ -69,18 +69,6 @@ function itemDone(id){
 
     $(listitem).addClass("doneItem");
 
-    //listitem.style.backgroundColor = "red";
-    // listitem.id += "-run";
-
-
-
-    // $(this.).attr({
-    //     "color": "red"
-    // });
-
-
-       
-
 }
 
 
