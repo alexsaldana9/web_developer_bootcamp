@@ -15,6 +15,7 @@ $("li").on('click', function () {
 
 
 function addItem(){
+    var count = 0;
     var textInput  = document.getElementById('todo-input').value;
     console.log("textInput .." , textInput);
 
@@ -27,12 +28,27 @@ function addItem(){
     console.log("list ....", list);
 
     document.getElementById("dynamic-list").appendChild(li);
+
     document.getElementById("todo-input").value = " ";
+
+
+    count = $("#dynamic-list li").length
+    console.log("count li >>", count);
+
+    $('#dynamic-list li').each(function(i) {
+        $(this).attr('id', (i+1));
+    });
 }
 
 function removeItem(){
-    var ul = document.getElementById("dynamic-list");
-    var deleteItem = document.getElementById("dataInput");
-    var item = document.getElementById(deleteItem.value);
-    ul.removeChild(item);
+    // var ul = document.getElementById("dynamic-list");
+    // var deleteItem = document.getElementById("dataInput");
+    // var item = document.getElementById(deleteItem.value);
+    // ul.removeChild(item);
+
+ 
+     alert("selected");
+
 }
+
+

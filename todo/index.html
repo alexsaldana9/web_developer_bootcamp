@@ -32,6 +32,20 @@
     </div>
 
     <script src="todo.js"></script>
+
+
   </body>
+
+  <script>
+    var liSelected = document.getElementById('dynamic-list');
+    liSelected.onclick = function(event) {
+        console.log("clicked");
+
+        var button = document.createElement("button");
+        button.innerHTML = "delete";
+        liSelected.appendChild(button);
+
+    };
+  </script>
 
 </html>
