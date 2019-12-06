@@ -71,4 +71,8 @@ function itemDone(id){
 
 }
 
+function clearList(){
+    $('#dynamic-list').empty()
+}
+
 
