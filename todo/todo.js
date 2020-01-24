@@ -64,8 +64,25 @@ function addItem(){
 }
 
 
+function itemDone(id){
+    var listitem = document.getElementById(id);
+    $(listitem).addClass("doneItem");
+}
+
+function clearList(){
+    console.log("clicked CLear");
+
+    $('#dynamic-list').empty();
+    $('#todo-input').value = " ";
+}
+
+
 function downloadInnerHtml(filename, elId, mimeType) {
-    var elHtml = document.getElementById(elId).innerHTML;
+   //var elHtml = document.getElementById(elId).innerHTML;
+   
+   var elHtml = document.getElementById(elId).textContent;
+   // var elHtml = document.getElementById(elId).text();
+
     var link = document.createElement('a');
     mimeType = mimeType || 'text/plain';
 
@@ -81,16 +98,5 @@ $('#exportList').click(function(){
 
 });
 
-
-
-
-function itemDone(id){
-    var listitem = document.getElementById(id);
-    $(listitem).addClass("doneItem");
-}
-
-function clearList(){
-    $('#dynamic-list').empty();
-}
 
 
