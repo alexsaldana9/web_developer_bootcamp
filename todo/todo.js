@@ -63,6 +63,27 @@ function addItem(){
     textInput.trim();
 }
 
+
+function downloadInnerHtml(filename, elId, mimeType) {
+    var elHtml = document.getElementById(elId).innerHTML;
+    var link = document.createElement('a');
+    mimeType = mimeType || 'text/plain';
+
+    link.setAttribute('download', filename);
+    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+    link.click(); 
+}
+
+$('#exportList').click(function(){
+    console.log("clicked export");
+    var fileName =  'todo.txt'; // You can use the .txt extension if you want
+    downloadInnerHtml(fileName, 'dynamic-list','text/html');
+
+});
+
+
+
+
 function itemDone(id){
     var listitem = document.getElementById(id);
     $(listitem).addClass("doneItem");
