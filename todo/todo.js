@@ -79,7 +79,6 @@ function clearList(){
 
 function downloadInnerHtml(filename, elId, mimeType) {
    //var elHtml = document.getElementById(elId).innerHTML;
-   
    var elHtml = document.getElementById(elId).textContent;
    // var elHtml = document.getElementById(elId).text();
 
