@@ -64,10 +64,19 @@ function addItem(){
 }
 
 
-function itemDone(id){
+/*function itemDone(id){
     var listitem = document.getElementById(id);
     $(listitem).addClass("doneItem");
+}*/
+
+function itemDone(id){
+    var listitem = document.getElementById(id);
+    console.log("clicked done button");
+    $(listitem).toggleClass("doneItem");
 }
+
+
+
 
 function clearList(){
     console.log("clicked CLear");
