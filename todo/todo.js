@@ -33,9 +33,14 @@ function addItem(){
         buttonDone.textContent = 'Done';
         buttonDone.className = 'buttonDone btn btn-secondary';
         buttonDone.addEventListener("click", itemDone);
+
+        // add glyph icon to <i class="glyphicon glyphicon-ok"></i>
+        // let glyph = document.createElement('span');
+        // glyph.className = "glyphicon glyphicon-ok hide-glyph";
     
         document.getElementById("dynamic-list").appendChild(li);
         li.appendChild(buttonDone);
+       // li.append(glyph);
     
         document.getElementById("todo-input").value = " ";
     
@@ -71,8 +76,15 @@ function addItem(){
 
 function itemDone(id){
     var listitem = document.getElementById(id);
+    console.log(listitem);
     console.log("clicked done button");
     $(listitem).toggleClass("doneItem");
+   // $(listitem).addClass("check");
+
+    let glyph = document.createElement('span');
+    glyph.className = "glyphicon glyphicon-ok";
+
+    listitem.appendChild(glyph);
 }
 
 
