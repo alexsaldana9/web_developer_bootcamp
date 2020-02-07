@@ -34,6 +34,10 @@ function addItem(){
         buttonDone.className = 'buttonDone btn btn-secondary';
         buttonDone.addEventListener("click", itemDone);
 
+        // let glyph = document.createElement('span');
+        // glyph.className = "checked";
+        // li.appendChild(glyph);
+
         // add glyph icon to <i class="glyphicon glyphicon-ok"></i>
         // let glyph = document.createElement('span');
         // glyph.className = "glyphicon glyphicon-ok hide-glyph";
@@ -76,18 +80,25 @@ function addItem(){
 
 function itemDone(id){
     var listitem = document.getElementById(id);
-    console.log(listitem);
-    console.log("clicked done button");
+    // let glyph = document.createElement('span');
+    // glyph.className = "checked";
+    // listitem.appendChild(glyph);
+
+    console.log("listitem ======" , listitem);
     $(listitem).toggleClass("doneItem");
-   // $(listitem).addClass("check");
+    $(listitem).toggleClass("checked");
 
-    let glyph = document.createElement('span');
-    glyph.className = "glyphicon glyphicon-ok";
+    //glyph.toggleClass("checked");
 
-    listitem.appendChild(glyph);
+    // let glyph = document.createElement('span');
+    // glyph.className = "checked";
+
+    //$(listitem).toggleClass("checked");
+
+    // let glyph = document.createElement('span');
+    // glyph.className = "glyphicon glyphicon-ok";
+    // listitem.appendChild(glyph);
 }
-
-
 
 
 function clearList(){

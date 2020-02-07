@@ -47,4 +47,20 @@ li {
 
 .doneItem {
     background-color: green;
+    /* content:"\e013";  */
+}
+
+/* .checked {
+    height:40px;
+    border:1px solid #555;
+  width:50%;
+  margin:30px;
+} */
+
+.checked:before{
+  content:"\e013";
+  font-family:"Glyphicons Halflings";
+  line-height:1;
+  margin:10px;
+  display:inline-block;
 }
