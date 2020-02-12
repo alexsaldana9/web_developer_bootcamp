@@ -23,6 +23,7 @@ function addItem(){
 
     if (textInput === "" || textInput.length === 0 || textInput === null ||  textInput.length === 1) {
         console.log("enter some todo");
+        // TODO: Display a readable UI message
     } else {
         var li = document.createElement('li');
     
@@ -46,7 +47,7 @@ function addItem(){
         li.appendChild(buttonDone);
        // li.append(glyph);
     
-        document.getElementById("todo-input").value = " ";
+        document.getElementById("todo-input").value = "";
     
         count = $("#dynamic-list li").length
     
