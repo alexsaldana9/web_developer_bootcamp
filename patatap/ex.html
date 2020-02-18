@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Circles</title>
+    <script type="text/javascript" src="paper-full.js"></script>
+    <link rel="stylesheet" type="text/css" href="circles.css"> 
+
+    <script type="text/paperscript" canvas="Mycanvas">
+        // Create a Paper.js Path to draw a line into it:
+        var path = new Path();
+        // Give the stroke a color
+        path.strokeColor = 'red';
+        var start = new Point(10, 5);
+        // Move to start and draw a line from there
+        path.moveTo(start);
+        // Note the plus operator on Point objects.
+        // PaperScript does that for us, and much more!
+        path.lineTo(start + [ 100, -50 ]);
+        path.lineTo([ 100, -50 ]);
+        path.lineTo([ 2, -50 ]);
+
+
+        //var myCircle = new Path.Circle(new Point(100, 70), 50);
+        //myCircle.fillColor = "red";
+ 
+        //var circle2 = new Path.Circle(new Point(200, 300), 60);
+        //circle2.fillColor = "blue";
+
+        //var circle3 = new Path.Circle(new Point(268, 222), 3);
+        //circle3.fillColor = "pink"; 
+
+        var circle = "circle";
+        var circleCount = 0;
+        var items = ["red", "yellow", "blue", "green", "orange","white"];
+        
+        var numberCircles = 35;
+        var i = 0;
+        var j = 0;
+
+        var x = 0;
+        var y = 0;
+        var radius = 5;
+
+        function drawCircle(numberCircles) {
+            for (i = 1; i < numberCircles ; i++) {
+                    x = x + 40;
+                    console.log("x ==> ", x );
+                    y = y + 40;
+                    console.log("y ==> ", y );
+        
+                    circle = "circle" + i.toString();
+                    console.log("circle ==" , circle);
+                    circle = new Path.Circle(new Point(x, y), radius);
+                    circle.fillColor = "blue";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "orange";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "red";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "green";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "purple";
+
+                    console.log("circle color " + circle + " "+ circle.fillColor);
+                for (j = 1; j < numberCircles ; j++) {
+                    x = x + 40;
+                    console.log("x ==> ", x );
+                    y = y + 60;
+                    console.log("y ==> ", y );
+        
+                    circle = "circle" + j.toString();
+                    console.log("circle ==" , circle);
+                    circle = new Path.Circle(new Point(x, y), radius);
+                    circle.fillColor = "red";
+
+                    circle = new Path.Circle(new Point((x = x + 100), y), radius);
+                    circle.fillColor = "orange";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "white";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "red";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "green";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "purple";
+
+                    circle = new Path.Circle(new Point(x, (y = y + 50)), radius);
+                    circle.fillColor = "purple";
+
+
+                    console.log("circle color " + circle + " "+ circle.fillColor);
+                }
+            }
+        }
+
+       drawCircle(numberCircles);
+
+       // setTimeout(drawCircle(numberCircles), 5000);
+
+        function random_item(items) {
+            return items[Math.floor(Math.random()*items.length)]; 
+        }
+    </script>
+</head>
+<body>
+    <canvas class="canvas" id="Mycanvas" ></canvas>
+</body>
+</html>
