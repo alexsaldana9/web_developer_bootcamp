@@ -21,20 +21,42 @@
         path.lineTo([ 2, -50 ]);
 
 
-        var myCircle = new Path.Circle(new Point(100, 70), 50);
-        myCircle.fillColor = "red";
+        //var myCircle = new Path.Circle(new Point(100, 70), 50);
+        //myCircle.fillColor = "red";
  
+        //var circle2 = new Path.Circle(new Point(200, 300), 60);
+        //circle2.fillColor = "blue";
 
-        var circle2 = new Path.Circle(new Point(200, 300), 60);
-        circle2.fillColor = "blue";
+        //var circle3 = new Path.Circle(new Point(268, 222), 3);
+        //circle3.fillColor = "pink"; 
 
-        var circle3 = new Path.Circle(new Point(400, 300), 80);
-        circle3.fillColor = "pink";
+        var circle = "circle";
+        var circleCount = 0;
+        var items = ["red", "yellow", "blue", "green", "orange","white"];
         
+        var numberCircles = 35;
+        var i = 0;
 
+        for (i = 1; i < numberCircles ; i++) {
 
+            var x = Math.floor((Math.random() * 1000) + 1);
+            console.log("x ==", x);
+            var y = Math.floor((Math.random() * 1000) + 1);
+            console.log("y ==", y);
+            var radius = Math.floor((Math.random() * 100) + 1);
+            console.log("radius ==", radius);
+
+            circle = "circle" + i.toString();
+            console.log("circle ==" , circle);
+            circle = new Path.Circle(new Point(x, y), radius);
+            circle.fillColor = random_item(items);
+            console.log("circle color " + circle + " "+ circle.fillColor);
+        }
+
+        function random_item(items) {
+            return items[Math.floor(Math.random()*items.length)]; 
+        }
     </script>
-    
 </head>
 <body>
     <canvas class="canvas" id="Mycanvas" ></canvas>
