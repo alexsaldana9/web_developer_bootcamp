@@ -7,15 +7,29 @@
     <link rel="stylesheet" type="text/css" href="circles.css"> 
     <script type="text/paperscript" canvas="Mycanvas">
 
-        function onKeyDown(event) {
-          //  new Path.Circle(new Point(100,100), 10).fillColor = "green";
+        var circles = [];
 
+        function onKeyDown(event) {
             var maxPoint = new Point(view.size.width, view.size.height);
-            console.log("Maxpoint ----", maxPoint)
             var randomPoint = Point.random();
             var point = maxPoint * randomPoint;
-
+            var newCircle = new Path.Circle(point, 500);
             new Path.Circle(point, 10).fillColor = "orange";
+
+            circles.push(newCircle);
+        }
+
+       // var animatedCircle = new Path.Circle(new Point(300, 300), 100);
+       // animatedCircle.fillColor = "purple";
+
+
+        function onFrame(event) {
+            for (var i = 0; i < circles.length; i++) {
+                //circles[i].fillColor.hue += 1;
+                circles[i].scale(0.9);
+            }
+            //circles[i].fillColor.hue += 1;
+            //circles[i].scale(0.9);
         }
         
         
