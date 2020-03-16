@@ -6,7 +6,7 @@ var scoresStudent2 = [40, 65, 77, 82, 80, 54, 73, 63, 95, 49];
 average(scoresStudent1);
 average(scoresStudent2);
 
-function average(scores) {
+function average(scores) { 
     var count = 0;
     var arrayLength = scores.length;
     var average = 0; 
