@@ -31,7 +31,7 @@ app.get("/repeat/:word/:num", function(req, res){
 		var word = req.params.word;
 		console.log("word= " + word);
 
-    var num = req.params.num;
+    var num = Number(req.params.num);
     console.log("num= " + num);
 
     var sentence = "";
