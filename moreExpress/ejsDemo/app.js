@@ -1,6 +1,9 @@
 var express = require("express");
 var app = express();
 
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+
 var listener = app.listen(8888, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8888
 });
@@ -11,7 +14,7 @@ app.listen(process.env.PORT, process.env.IP, function(){
 
 app.get("/", function(req, res){
     //res.send("<h1>HOLA</h1>");
-    res.render("home.ejs");
+    res.render("home");
 });
 
 app.get("/love/:animal", function(req, res){
@@ -19,7 +22,7 @@ app.get("/love/:animal", function(req, res){
 		console.log("animal = " + animal);
 
     //res.send("You love " + animal);
-    res.render("love.ejs", {animalVar : animal});
+    res.render("love", {animalVar : animal});
 });
 
 app.get("/repeat/:word/:number", function(req, res){
@@ -47,11 +50,19 @@ app.get("/speak/:animal", function(req, res){
 	} else {
 		var sound = "not found";
 	}
-	res.render("speak.ejs", {animalVar : animal, soundVar : sound});
+	res.render("speak", {animalVar : animal, soundVar : sound});
 });
 
+app.get("/post", function(req, res){
+	var posts = [
+		{title: "Post 1", author: "john"},
+		{title: "Post 2", author: "johnny"},
+		{title: "Post 3", author: "jane"}
+	];
+	res.render("posts", {posts: posts});
+});
 
 app.get("*", function(req, res){
     //res.send("<h1>HOLA</h1>");
-    res.render("notfound.ejs");
+    res.render("notfound");
 });
