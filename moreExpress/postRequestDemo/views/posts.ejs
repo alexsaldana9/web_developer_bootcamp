@@ -1,0 +1,18 @@
+
+
+<h1>Posts</h1>
+
+<ul>
+<% for(var i = 0; i <posts.length; i++) { %>
+	<li> post </li>
+<% } %>
+</ul>
+
+<h2>Using a forEach loop</h2>
+
+<ul>
+<% posts.forEach(function(post) { %>
+	<li> <%= post %></strong></li>
+<% }) %>
+</ul>
+
