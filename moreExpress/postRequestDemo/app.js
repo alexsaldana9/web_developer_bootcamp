@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+var friends = ["Ale", "John", "Lisa", "Lila"];
+
 var listener = app.listen(8888, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8888
 });
@@ -23,8 +25,6 @@ app.get("/", function(req, res){
 
 
 app.get("/friend", function(req, res){
-
-    var friends = ["Ale", "John", "Lisa", "Lila"];
 
     res.render("friends", {friends: friends});
 });
@@ -47,6 +47,8 @@ app.get("/post", function(req, res){
 
 app.post("/addfriend", function(req, res){
     console.log(req.body);
+    var newfriend = req.body.newfriend;
+    friends.push(newfriend);
     res.send("You reached the post route");
 });
 
