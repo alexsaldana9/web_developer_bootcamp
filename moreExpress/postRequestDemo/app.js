@@ -49,7 +49,7 @@ app.post("/addfriend", function(req, res){
     console.log(req.body);
     var newfriend = req.body.newfriend;
     friends.push(newfriend);
-    res.send("You reached the post route");
+    res.redirect("/friend");
 });
 
 
