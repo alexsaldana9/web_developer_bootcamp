@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<header class="jumbotron">
+    <h1>Campgrounds</h1>
+    <p>View the campgrounds from the National Parks</p>
+    <p>
+        <a href="/campgrounds/new" class="btn btn-primary btn-lg">Add New Campground</a>
+    </p>
+</header>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Most popular campgrounds</h3>
+    </div>
+</div>
+
+<div class="row" style="display: flex; flex-wrap: wrap; ">
+    <% campgrounds.forEach(function(campground){ %>
+        <div class="col-sm-6">
+            <div class="thumbnail">
+                <img src="<%= campground.image %>" class="img-responsive" >
+            </div>
+            <div class="caption">
+                <h4><%= campground.name %></h4>
+            </div>
+        </div>
+    <% }); %>
+</div>
+    
+
+
+<%- include("partials/footer") %>

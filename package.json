@@ -1,0 +1,27 @@
+{
+  "name": "web_developer_bootcamp",
+  "version": "1.0.0",
+  "description": "YelpCampv1",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "paper": "^0.12.4",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsaldana9/web_developer_bootcamp.git"
+  },
+  "author": "Alex S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexsaldana9/web_developer_bootcamp/issues"
+  },
+  "homepage": "https://github.com/alexsaldana9/web_developer_bootcamp#readme"
+}
