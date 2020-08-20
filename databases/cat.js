@@ -46,6 +46,22 @@ Cat.create({
 });
 
 
+// New and save 
+Cat.create({
+    name: "Lolo",
+    age: 12,
+    temperament: "grumpy"
+}, function(err, response){
+    if(err){
+        console.log("ERROR!!");
+        console.log(err);
+    } else {
+        console.log("New cat");
+        console.log(response);
+    }
+});
+
+
 // Find all cats
 Cat.find({}, function(err, response){
     if(err){
