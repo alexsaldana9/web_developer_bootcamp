@@ -1,4 +1,5 @@
 var express = require("express"),
+methodOverride = require("method-override"),
 app = express();
 bodyParser = require("body-parser"),
 mongoose = require("mongoose");
@@ -14,6 +15,7 @@ mongoose.connect('mongodb://127.0.0.1/restful_blog_app', {
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 // Monggose / Model Config
 var blogSchema = new mongoose.Schema({
@@ -37,6 +39,7 @@ app.get("/", function(req, res){
     res.redirect("/blogs");
 })
 
+// Index
 app.get("/blogs", function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
@@ -45,6 +48,50 @@ app.get("/blogs", function(req, res){
             res.render("index", {blogs: blogs});
         }
     })
+});
+
+//New
+app.get("/blogs/new", function(req, res) {
+    res.render("new.ejs")
+});
+
+// Create 
+app.post("/blogs", function(req, res) {
+    Blog.create(req.body.blog, function(err, newBlog){
+        if (err) {
+            console.log("Error creating blog!");
+            res.render("new");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+});
+
+// show by id
+app.get("/blogs/:id", function(req, res) {
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("show", {blog: foundBlog});
+        }
+    });
+});
+
+// Edit
+app.get("/blogs/:id/edit", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("edit", {blog: foundBlog});
+        }
+    });
+});
+
+// Update
+app.put("/blogs/:id", function(req, res) {
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, callback)
 })
 
 

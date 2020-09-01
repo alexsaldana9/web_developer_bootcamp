@@ -86,11 +86,13 @@ app.get("/campgrounds/new", function(req, res) {
 });
 
 app.get("/campgrounds/:id", function(req, res) {
-
-
-
-    res.send("THIS will be page for specific id");
-    //res.render("new.ejs")
+    Camp.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("show", {camp: foundCampground})
+        }
+    });
 });
 
 app.get("/campgrounds", function(req, res) {
@@ -103,9 +105,7 @@ app.get("/campgrounds", function(req, res) {
             console.log(response);
             res.render("index", {campgrounds: response});
         }
-    })
-
-   
+    })   
 });
 
 

@@ -1,0 +1,18 @@
+.bi {
+    font-size: 2em;
+}
+
+img {
+    height: 6em;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #343a40!important;
+    color: #fff;
+}
+
+.footer .row .col-sm-4 {
+    margin-top: 1.3em;
+}

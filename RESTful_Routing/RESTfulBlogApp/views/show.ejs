@@ -1,0 +1,11 @@
+<%- include("partials/header") %>
+
+
+    <div>
+        <h2>Show Blog: <%= blog.title %></h2>
+        <img src="<%= blog.image %>" class="img-responsive" >
+        <p><%= blog.body %></p>
+        <span><%= blog.created.toDateString() %></span>
+    </div>
+   
+<%- include("partials/footer") %>

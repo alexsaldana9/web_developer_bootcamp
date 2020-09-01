@@ -1,0 +1,21 @@
+
+<%- include("partials/header") %>
+
+<h1>New Blog</h1>
+
+<form action="/blogs" method="POST">
+    <div class="form-group">
+      <input type="text" class="form-control" name="blog[title]" placeholder="title">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="blog[image]" placeholder="image url">
+    </div>
+    <div class="form-group">
+      <textarea name="blog[body]" rows="3" style="min-width: 100%"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<%- include("partials/footer") %>
