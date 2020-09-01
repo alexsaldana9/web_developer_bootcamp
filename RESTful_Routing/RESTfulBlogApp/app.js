@@ -91,8 +91,25 @@ app.get("/blogs/:id/edit", function(req, res){
 
 // Update
 app.put("/blogs/:id", function(req, res) {
-    Blog.findByIdAndUpdate(req.params.id, req.body.blog, callback)
-})
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updateBlog){
+        if(err) {
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs/" + req.params.id);
+        }
+    });
+});
+
+// delete
+app.delete("/blogs/:id", function(req, res) {
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err) {
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+});
 
 
 // Start the server

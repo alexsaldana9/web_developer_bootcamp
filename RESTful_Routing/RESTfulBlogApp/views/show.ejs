@@ -7,5 +7,67 @@
         <p><%= blog.body %></p>
         <span><%= blog.created.toDateString() %></span>
     </div>
+   <p><a href="/blogs/<%= blog._id %>/edit">Edit blog</a></p>
+
+   <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-confirm">
+                    Delete
+            </button> 
+        <!-- Modal -->
+            <!-- <div class="modal fade" id="exampleModal" 
+                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Are you sure you want to delete this blog post ?
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" id="delete_id" class="btn btn-warning">Save changes -  DELETE</button>
+                    </div>
+                </div>
+                </div>
+            </div> -->
+
+
+            <div id="delete-confirm" class="modal"  data-backdrop="static" data-keyboard="false">
+                <div class="vertical-alignment-helper">
+                     <div class="modal-dialog vertical-align-center">
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 
+                                 <h4 class="modal-title  text-center"> Attention</h4>
+                             </div>
+                             <div class="modal-body">
+                                 <p class="text-center">Are you sure you want to delete this record?</p>
+                                 <form action="delete.php" method="post">
+                                
+                               <div class="text-center" >
+                                   <button id="delete_id" class=" btn btn-danger ">Delete</button>
+                                   <button type="button" class=" btn btn-primary " data-dismiss="modal" > Cancel</button>
+                               </div>
+                               </form>
+                                 
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+   </form>
+
+
+<script>
+    $('#delete_id').on('click',function(){
+         $('#delete-confirm').modal('show');
+    });
+</script>
    
 <%- include("partials/footer") %>
