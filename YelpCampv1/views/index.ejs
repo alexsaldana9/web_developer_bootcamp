@@ -14,24 +14,25 @@
     </div>
 </div>
 
-<div class="row" style="display: flex; flex-wrap: wrap; ">
-    <hr/>
+
+    <div class="row">
+
+    
     <% campgrounds.forEach(function(campground){ %>
-        <div class="col-sm-6">
-            <div class="thumbnail">
-                <img src="<%= campground.image %>" >
-            </div>
-            <div class="caption">
-                <h4><%= campground.name %></h4>
-                <p><strong>Location: </strong><%= campground.location %></p>
-            </div>
-            <p>
-                <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More info</a>
-            </p>
+
+        <div class="mb-20 col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%= campground.name %></h5>
+                  <p class="card-text"><strong>Location: </strong><%= campground.location %></p>
+                  <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More info</a>
+                </div>
+              </div>
         </div>
+
     <% }); %>
 </div>
-    
 
 
 <%- include("partials/footer") %>

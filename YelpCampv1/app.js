@@ -1,8 +1,14 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var seedDB = require("./seeds");
 
+
+seedDB();
 const mongoose = require('mongoose');
+var Camp =  require("./models/camp");
+var Comment =  require("./models/comment");
+
 mongoose.connect('mongodb://127.0.0.1/yelp_camp', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -11,35 +17,26 @@ mongoose.connect('mongodb://127.0.0.1/yelp_camp', {
 .catch(error => console.log(error.message));
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-// SCHEMA
-var campSchema = new mongoose.Schema({
-    name: String,
-    price: Number,
-    location: String,
-    description: String,
-    image: String
-});
 
-var Camp = mongoose.model("Camp", campSchema);
+// var campsite =  new Camp({
+//     name: "Yosemite", 
+//     price: 20, 
+//     location: "California",
+//     description: "primitive camping",
+//     image: "https://www.nps.gov/common/uploads/grid_builder/yose/crop16_9/56CD3D55-E4EF-1B16-0DBD63EB2F5193A4.jpg?width=307&quality=90&mode=crop"
+// });
 
-var campsite =  new Camp({
-    name: "Yosemite", 
-    price: 20, 
-    location: "California",
-    description: "primitive camping",
-    image: "https://www.nps.gov/common/uploads/grid_builder/yose/crop16_9/56CD3D55-E4EF-1B16-0DBD63EB2F5193A4.jpg?width=307&quality=90&mode=crop"
-});
-
-campsite.save(function(err, response){
-    if(err){
-        console.log("Something went wrong!!");
-    } else {
-        console.log("Saved campsite to DB");
-        console.log(response);
-    }
-});
+// campsite.save(function(err, response){
+//     if(err){
+//         console.log("Something went wrong!!");
+//     } else {
+//         console.log("Saved campsite to DB");
+//         console.log(response);
+//     }
+// });
 
 // New and save 
 // Camp.create({
