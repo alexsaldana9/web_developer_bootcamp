@@ -1,8 +1,18 @@
 
-img {
+/* img {
     width: 250px;
-}
+} */
 
 .mb-20 {
     margin-bottom: 20px;
+}
+
+.img-thumbnail img {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+.caption-full h3 {
+    margin-top: 5px;
 }

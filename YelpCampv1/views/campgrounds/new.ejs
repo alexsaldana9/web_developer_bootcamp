@@ -1,8 +1,17 @@
 <%- include("../partials/header") %>
 <div class="row">
-    <h1>Create a New Campgrounds</h1>
+    <div class="col-md-3">
+        <p class="lead">YelpCamp</p>
+        <div class="list-group">
+            <li class="list-group-item active">Info 1</li>
+            <li class="list-group-item">Info 1</li>
+            <li class="list-group-item">Info 1</li>
+        </div>
+    </div>
+    
 
-    <div class="col-sm-6">
+    <div class="col-sm-9">
+        <h1>Create a New Campgrounds</h1>
         <form action="/campgrounds" method="POST">
             <div class="form-group">
                 <input class="form-control" type="text" name="name" placeholder="Name of campground">
