@@ -87,7 +87,7 @@ router.get("/campgrounds", function(req, res) {
 });
 
 
-router.post("/campgrounds", function(req, res) {
+router.post("/campgrounds", isLoggedIn, function(req, res) {
     // add data from form
     // redirect to campgrounds
 
