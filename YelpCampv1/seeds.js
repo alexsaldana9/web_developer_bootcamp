@@ -24,34 +24,34 @@ var data = [
 
 function seedDB() {
     Camp.remove({},  function(err){
-        if(err) {
-            console.log(err);
-        }
-        console.log("removed Camps!!");
+            if(err) {
+                console.log(err);
+            }
+            console.log("removed Camps!!");
 
-        data.forEach(function(seed){
-            Camp.create(seed, function(err, camp){
-                if(err) {
-                    console.log(err);
-                } else {
-                    console.log("added camp");
+            data.forEach(function(seed){
+                Camp.create(seed, function(err, camp){
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        console.log("added camp");
 
-                    Comment.create(
-                        {
-                            text: "Nice ",
-                            author: "Leia"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                camp.comments.push(comment);
-                                camp.save();
-                                console.log("created a new comment");
-                            }
-                        });
-                }
+                        Comment.create(
+                            {
+                                text: "Nice ",
+                                author: "Leia"
+                            }, function(err, comment){
+                                if(err){
+                                    console.log(err);
+                                } else {
+                                    camp.comments.push(comment);
+                                    camp.save();
+                                    console.log("created a new comment");
+                                }
+                            });
+                    }
+                });
             });
-        });
     });
     
 }
