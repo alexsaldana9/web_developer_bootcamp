@@ -7,9 +7,12 @@
             <div class="form-group">
                 <input class="form-control" type="text" name="comment[text]" placeholder="Leave your comments">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <input class="form-control" type="text" name="comment[author]" placeholder="Your name" >
-            </div>
+            </div> -->
+            <input type="hidden" name="comment[author]" value="<%= currentUser.username %>">
+
+            <p><%= currentUser.username %></p>
            
             <div class="form-group">
                 <button class="btn btn-primary btn-block" value="submit">Submit</button>

@@ -59,7 +59,7 @@ Camp.find({}, function(err, response){
 
 
 router.get("/campgrounds/new", isLoggedIn, function(req, res) {
-    res.render("campgrounds/new.ejs")
+    res.render("campgrounds/new.ejs", {currentUser: req.user});
 });
 
 router.get("/campgrounds/:id", function(req, res) {
