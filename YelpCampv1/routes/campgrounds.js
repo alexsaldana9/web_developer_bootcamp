@@ -94,8 +94,12 @@ router.post("/campgrounds", isLoggedIn, function(req, res) {
     var name = req.body.name;
     var image = req.body.image;
     var location = req.body.location;
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
 
-    var newCampground = {name: name, image: image, location: location};
+    var newCampground = {name: name, image: image, location: location, author: author};
 
     Camp.create(newCampground, function(err, newlyCreated){
         if(err){
