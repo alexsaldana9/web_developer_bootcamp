@@ -137,6 +137,18 @@ router.put("/campgrounds/:id", isLoggedIn, function(req, res) {
     });
 });
 
+
+// Destroy 
+router.delete("/campgrounds/:id", function(req, res){
+    Camp.findByIdAndRemove(req.params.id, function(err){
+        if(err) {
+            console.log(err);
+            res.redirect("/campgrounds");
+        }
+        res.redirect("/campgrounds");
+    }); 
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
