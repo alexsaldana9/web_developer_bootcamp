@@ -1,4 +1,5 @@
 var express = require("express");
+const { findOneAndUpdate } = require("../models/camp");
 var router = express.Router();
 var Camp =  require("../models/camp");
 var Comment =  require("../models/comment");
@@ -108,6 +109,32 @@ router.post("/campgrounds", isLoggedIn, function(req, res) {
             res.redirect("/campgrounds");
         }
     });    
+});
+
+
+// Edit - contains form
+router.get("/campgrounds/:id/edit", function(req, res) {
+    Camp.findById(req.params.id, function(err,foundCampground){
+        if(err) {
+            res.redirect("/campgrounds");
+        } else {
+            res.render("campgrounds/edit", {campground: foundCampground});
+        }
+    });
+});
+
+
+// Update -  where the form submits to
+router.put("/campgrounds/:id", isLoggedIn, function(req, res) {
+    Camp.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
+        console.log("updatedCampground === ############## "+ updatedCampground);
+        if(err){
+            res.redirect("/campgrounds");
+        } else {
+            //console.log("name change: " + req.params.camp.name );
+            res.redirect("/campgrounds/" + req.params.id);
+        }
+    });
 });
 
 function isLoggedIn(req, res, next){

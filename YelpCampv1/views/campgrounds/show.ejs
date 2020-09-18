@@ -18,6 +18,7 @@
             </div>
             <p><%= camp.location %></p>
             <p><%= camp.description %></p>
+            <p><a class="btn btn-warning" href="/campgrounds/<%= camp._id %>/edit"> Edit Camp</a></p>
         </div>
         <div class="card card-body bg-light">
             <% camp.comments.forEach(function(comment) { %>
