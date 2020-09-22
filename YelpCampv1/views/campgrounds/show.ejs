@@ -18,14 +18,24 @@
             </div>
             <p><%= camp.location %></p>
             <p><%= camp.description %></p>
-            <p><a class="btn btn-warning" href="/campgrounds/<%= camp._id %>/edit"> Edit Camp</a></p>
-            <!-- <form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-danger">Delete</button>
-            </form> -->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                Delete Camp
-            </button>
+
+            <% console.log("type of currentUser ===>>"); %>
+            <% console.log(typeof(currentUser)); %>
+            <% console.log("camp.author.id ---- " + camp.author.id ); %>
+
+
+            <% if(currentUser && camp.author.id.equals(currentUser._id)) { %>
+              <p>
+                <a class="btn btn-warning" href="/campgrounds/<%= camp._id %>/edit"> Edit Camp</a>
+              </p>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                  Delete Camp
+              </button>
+            <% } else  { %>
+              <p>Added by: <%= camp.author.username %></p>
+            <% } %>
+            
         </div>
         <div class="card card-body bg-light">
             <% camp.comments.forEach(function(comment) { %>

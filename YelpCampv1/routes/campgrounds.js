@@ -113,19 +113,15 @@ router.post("/campgrounds", isLoggedIn, function(req, res) {
 
 
 // Edit - contains form
-router.get("/campgrounds/:id/edit", function(req, res) {
+router.get("/campgrounds/:id/edit", checkCampgroundOwnership, function(req, res) {
     Camp.findById(req.params.id, function(err,foundCampground){
-        if(err) {
-            res.redirect("/campgrounds");
-        } else {
-            res.render("campgrounds/edit", {campground: foundCampground});
-        }
+        res.render("campgrounds/edit", {campground: foundCampground});
     });
 });
 
 
 // Update -  where the form submits to
-router.put("/campgrounds/:id", isLoggedIn, function(req, res) {
+router.put("/campgrounds/:id", checkCampgroundOwnership, function(req, res) {
     Camp.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
         console.log("updatedCampground === ############## "+ updatedCampground);
         if(err){
@@ -139,7 +135,7 @@ router.put("/campgrounds/:id", isLoggedIn, function(req, res) {
 
 
 // Destroy 
-router.delete("/campgrounds/:id", function(req, res){
+router.delete("/campgrounds/:id", checkCampgroundOwnership, function(req, res){
     Camp.findByIdAndRemove(req.params.id, function(err){
         if(err) {
             console.log(err);
@@ -154,6 +150,31 @@ function isLoggedIn(req, res, next){
         return next();
     }
     res.redirect("/login");
+}
+
+// check user is the author of the campground
+function checkCampgroundOwnership(req, res, next) {
+    // is user logged in
+    if(req.isAuthenticated()) {
+        Camp.findById(req.params.id, function(err,foundCampground){
+            if(err) {
+                res.redirect("/campgrounds");
+            } else {
+                // if the user owns the campground
+                console.log("foundCampground ---- " + foundCampground);
+                if(foundCampground.author.id.equals(req.user._id)) {
+                    //res.render("campgrounds/edit", {campground: foundCampground});
+                    next();
+                } else {
+                    //res.send("You do not have permission to edit");
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        console.log("you need to log in");
+        res.redirect("/login");
+    }
 }
 
 module.exports = router;
